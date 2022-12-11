@@ -11,7 +11,10 @@ app.use(express.json());
 app.use(cors());
 
 /////////////////////////////////////////////////////////////////
-
+let PORT = 3000;
+if (process.env.PORT) {
+    PORT = process.env.PORT
+}
 
 ////===========ROUTES===========////
 
@@ -48,7 +51,7 @@ app.put('/books/:id', (req, res) => {
 
 
 ////////MAIN ROUTE
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('listening...');
 });
 
