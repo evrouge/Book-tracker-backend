@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 /////////////////////////////////////////////////////////////////
+
+///USING PORT 3000
 let PORT = 3000;
 if (process.env.PORT) {
     PORT = process.env.PORT
@@ -62,3 +64,5 @@ mongoose.connect('mongodb+srv://evrouge:CgmgSg70vGRMtIqw@cluster0.ehndsmy.mongod
 mongoose.connection.once('open', () => {
     console.log('connected to mongod...');
 });
+
+/////////////////////////////////////////////////////////////////
