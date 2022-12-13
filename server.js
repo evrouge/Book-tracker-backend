@@ -11,7 +11,10 @@ app.use(express.json());
 app.use(cors());
 
 /////////////////////////////////////////////////////////////////
-
+let PORT = 3000;
+if (process.env.PORT) {
+    PORT = process.env.PORT
+}
 
 ////===========ROUTES===========////
 
@@ -40,22 +43,22 @@ app.delete('/books/:id', (req, res) => {
 
 
 ///UPDATE/EDIT ROUTE///EDIT BOOKS///
-app.put('/books/:id', (req, res)=>{
-    Books.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedBooks)=>{
+app.put('/books/:id', (req, res) => {
+    Books.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedBooks) => {
         res.json(updatedBooks);
     });
 });
 
 
 ////////MAIN ROUTE
-app.listen(3000, ()=>{
+app.listen(PORT, () => {
     console.log('listening...');
 });
 
 ////////////////////////////////////////////////////////////////
 
 //////////////MONGOOSE CONNECTION
-mongoose.connect('mongodb://localhost:27017/book_tracker')
-mongoose.connection.once('open', ()=>{
+mongoose.connect('mongodb+srv://evrouge:CgmgSg70vGRMtIqw@cluster0.ehndsmy.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connection.once('open', () => {
     console.log('connected to mongod...');
 });
