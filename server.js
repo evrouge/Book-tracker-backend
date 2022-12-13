@@ -45,7 +45,7 @@ app.delete('/books/:id', (req, res) => {
 
 
 ///UPDATE/EDIT ROUTE///EDIT BOOKS///
-app.put('/books/:id', (req, res) => {
+app.put('/books/:id/edit', (req, res) => {
     Books.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedBooks) => {
         res.json(updatedBooks);
     });
