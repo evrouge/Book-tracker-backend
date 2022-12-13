@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 /////////////////////////////////////////////////////////////////
+
+///USING PORT 3000
 let PORT = 3000;
 if (process.env.PORT) {
     PORT = process.env.PORT
@@ -43,7 +45,7 @@ app.delete('/books/:id', (req, res) => {
 
 
 ///UPDATE/EDIT ROUTE///EDIT BOOKS///
-app.put('/books/:id', (req, res) => {
+app.put('/books/:id/edit', (req, res) => {
     Books.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedBooks) => {
         res.json(updatedBooks);
     });
@@ -62,3 +64,5 @@ mongoose.connect('mongodb+srv://evrouge:CgmgSg70vGRMtIqw@cluster0.ehndsmy.mongod
 mongoose.connection.once('open', () => {
     console.log('connected to mongod...');
 });
+
+/////////////////////////////////////////////////////////////////
